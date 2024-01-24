@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MmdbServiceService } from '../Services/mmdb-service.service';
 
+
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
@@ -9,27 +10,31 @@ import { MmdbServiceService } from '../Services/mmdb-service.service';
 })
 export class MovieDetailsComponent implements OnInit {
   selectedMovie : any;
-  constructor(private activate: ActivatedRoute,private movieService: MmdbServiceService,private route : ActivatedRoute ) {
-    // this.activate.params.subscribe((res:any)=>{
-    //   console.log(res); 
-    // })
+  newarray : any=[];
+  movieId;
+  des :string
+  constructor(private movieService: MmdbServiceService,private route : ActivatedRoute ) {
+  
    }
 
-  ngOnInit() {
- 
-  // const movieId = this.route.snapshot.params['id'];
+ngOnInit() {
 
-  // this.movieService.getMovieDetails(movieId).subscribe(
-  //   (data) => {
-  //     this.movieDetails = data;
-  //   },
-  //   (error) => {
-  //     console.error('Error fetching movie details:', error);
-  //   }
-  // );
   this.movieService.movies.subscribe((res) => {
-    this.selectedMovie = res;
-    console.log(this.selectedMovie)
-})
+    this.movieId = res;
+    console.log(this.movieId);
+
+    if (this.movieId !== undefined) {
+      this.movieService.getMovieDetails(this.movieId).subscribe(
+        (data) => {
+          this.newarray = data;
+          this.des=this.newarray.overview;
+          console.log(this.des);
+        },
+        (error) => {
+          console.error('Error fetching movie details:', error);
+        }
+      );
+    }
+  });
 }
 }

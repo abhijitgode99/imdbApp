@@ -11,10 +11,15 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   movieslist : any;
   prefix : string='https://image.tmdb.org/t/p/w1280';
-  constructor(private mmdbSer : MmdbServiceService,private router: Router) { }
+
+  filterString : string =''
+  constructor(private mmdbSer : MmdbServiceService,private router: Router) { 
+    this.mmdbSer.search.next(this.filterString)
+  }
 
   ngOnInit() {
    this.allMovies()
+
   }
 
   allMovies() {
@@ -26,15 +31,16 @@ export class HomeComponent implements OnInit {
           vote_average: movie.vote_average,
           id:movie.id,
           overview:movie.overview,
-          
+
         }));
         console.log(this.movieslist);
       }
     });
   }
   navigate(movie: any){
-    this.mmdbSer.movies.next(movie)
-    this.router.navigate(['/moviedetails'],movie)
-    console.log(movie);
+    this.mmdbSer.movies.next(movie.id)
+    this.router.navigate(['/moviedetails'])
+    console.log(movie.id);
   }
+  
 }

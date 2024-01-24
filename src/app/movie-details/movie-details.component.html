@@ -1,6 +1,11 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3"  *ngFor="let movies of newarray">
+            <div class="card mx-4 my-4 ">
+                <img [src]="movies.poster_path">
+                <span><strong>{{movies.title}}({{movies.vote_average}})></strong></span>
+            </div>
+        </div>
 
-   <div *ngIf="selectedMovie">
-    <h2>{{ selectedMovie.title }}</h2>
-    <p>{{ selectedMovie.overview }}</p>
-    <!-- Add more properties as needed -->
-  </div>
+    </div>
+</div>
