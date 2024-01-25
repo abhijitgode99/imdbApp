@@ -16,10 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(private mmdbSer : MmdbServiceService,private router: Router) { 
     this.mmdbSer.search.next(this.filterString)
   }
-
   ngOnInit() {
    this.allMovies()
-
   }
 
   allMovies() {
@@ -39,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
   navigate(movie: any){
     this.mmdbSer.movies.next(movie.id)
-    this.router.navigate(['/moviedetails'])
+    this.router.navigate(['/moviedetails',movie.id])
     console.log(movie.id);
   }
   

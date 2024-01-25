@@ -1,11 +1,23 @@
-<div class="container mt-4">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3"  *ngFor="let movies of newarray">
-            <div class="card mx-4 my-4 ">
-                <img [src]="movies.poster_path">
-                <span><strong>{{movies.title}}({{movies.vote_average}})></strong></span>
+        <div class="col-md-4">
+            <div class="card">
+                <img [src]="getFullPosterPath(newarray.poster_path)">
             </div>
         </div>
-
+        <div class="col-md-8 mt-4">
+            <div class="card">
+                <h3>{{newarray.title}}</h3>
+                {{newarray.status}} |  {{newarray.runtime}}m  | {{newarray.vote_average}}
+                <p class="mt-2">{{newarray.overview}}</p>
+                <h5 class="mt-3">Other Details</h5>
+                <h5 class="mt-3">Language:</h5>
+                {{newarray.original_language}}
+                <h5>Budget:</h5>
+                {{newarray.budget}}
+                <h5>Revnue:</h5>
+                {{newarray.revenue}}
+            </div>
+        </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { MmdbServiceService } from './Services/mmdb-service.service';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,12 +12,21 @@ import { MmdbServiceService } from './Services/mmdb-service.service';
 })
 export class AppComponent implements OnInit{
  
+//  movielist : any=[];
 
-  
-  constructor(private movieService : MmdbServiceService){
-
-    
-  }
+  //  serachForm:FormGroup=new FormGroup({
+  //    serach:new FormControl('')
+  //  })
+  // constructor(private movieService : MmdbServiceService){
+  //     this.movieService.searchMovies('serach').valueChanges.
+  //     pipe(
+  //       switchMap(())
+  //     ).subscribe(
+  //       (v)=>{
+  //         this.movielist =
+  //       }
+  //     )
+  // }
   ngOnInit(): void {  
   }
   

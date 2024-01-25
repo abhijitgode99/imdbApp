@@ -10,31 +10,33 @@ import { MmdbServiceService } from '../Services/mmdb-service.service';
 })
 export class MovieDetailsComponent implements OnInit {
   selectedMovie : any;
-  newarray : any=[];
+  newarray : any;
   movieId;
-  des :string
+
+
   constructor(private movieService: MmdbServiceService,private route : ActivatedRoute ) {
-  
+      this.route.params.subscribe((res:any)=>{
+          this.loadmoviedetails(res.id)
+      })
    }
+
+   loadmoviedetails(id : any ){
+      this.movieService.getMovieDetails(id).subscribe((res)=>{
+        console.log(res);
+          this.newarray=res;
+      })
+   }
+   getFullPosterPath(posterPath: string): string {
+    const prefix = 'https://image.tmdb.org/t/p/w1280'; 
+    if (posterPath) {
+      return `${prefix}/${posterPath}`;
+    } else {
+      return 'path_to_default_image';
+    }
+  }
+
 
 ngOnInit() {
 
-  this.movieService.movies.subscribe((res) => {
-    this.movieId = res;
-    console.log(this.movieId);
-
-    if (this.movieId !== undefined) {
-      this.movieService.getMovieDetails(this.movieId).subscribe(
-        (data) => {
-          this.newarray = data;
-          this.des=this.newarray.overview;
-          console.log(this.des);
-        },
-        (error) => {
-          console.error('Error fetching movie details:', error);
-        }
-      );
-    }
-  });
 }
 }
