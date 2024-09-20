@@ -11,7 +11,7 @@
         <div class="col-md-3"  *ngFor="let movies of  serachlist | filter : filterString" (click)="navigate(movies)">
             <div class="card mx-4 my-4 ">
                 <img [src]="movies.poster_path">
-                <span><strong>{{movies.title}}({{movies.vote_average}})></strong></span>
+                <span><strong>{{movies.title}}({{movies.vote_average}})</strong></span>
             </div>
         </div>
     </div>
@@ -22,8 +22,8 @@
         <div class="row">
             <div class="col-md-3"  *ngFor="let movies of movieslist" (click)="navigate(movies)">
                 <div class="card mx-4 my-4 ">
-                    <img [src]="movies.poster_path">
-                    <span><strong>{{movies.title}}({{movies.vote_average}})></strong></span>
+                    <img [src]="movies.poster_path" alt="{{movies.title}}">
+                    <span><strong>{{movies.title}}({{movies.vote_average}})</strong></span>
                 </div>
             </div>
         </div>

@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
           overview:movie.overview,
         }));
         console.log("movielist"+this.movieslist);
-        
       }
     });
   }
