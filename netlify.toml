@@ -1,5 +1,4 @@
 [build]
-  base = "imdbApp"
   command = "npm run build:prod"
   publish = "dist/"
 
