@@ -13,7 +13,6 @@ export class MovieDetailsComponent implements OnInit {
   newarray : any;
   movieId;
 
-
   constructor(private movieService: MmdbServiceService,private route : ActivatedRoute ) {
       this.route.params.subscribe((res:any)=>{
           this.loadmoviedetails(res.id)
