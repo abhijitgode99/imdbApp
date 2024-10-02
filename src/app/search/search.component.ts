@@ -13,7 +13,6 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.movieService.search.subscribe((res)=>{
       this.searchMovie=res;
-      console.log(this.searchMovie)
   })
   }
 }
