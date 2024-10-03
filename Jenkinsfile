@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         NODE_VERSION = 'NodeJS 16.x'  // Define the NodeJS version installed in Jenkins
-        NETLIFY_SITE_ID = 'b93bc468-a13e-49da-84ee-f655a3116624'  // Replace with your Netlify site ID
+        NETLIFY_SITE_ID = 'netlify-auth-token'  // Replace with your Netlify site ID
         NETLIFY_AUTH_TOKEN = credentials('nfp_iG4eTjEsTCRamQ8P8uaW9EsGTNJPbF7obd46')  // Fetch Netlify authentication token from Jenkins credentials
     }
 
